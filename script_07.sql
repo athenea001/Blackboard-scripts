@@ -1,0 +1,92 @@
+/****
+LISTADO DE ASPIRANTES EN PREUNIVERSITARIOS
+VARIOS SELECTS
+***/
+
+SELECT  DISTINCT PERSON_ID,
+        PER.SOURCE_ID,
+        PER.FIRST_NAME,
+        PER.LAST_NAME,
+        PER.EMAIL,
+        PER.STAGE:batch_uid,
+        PER.STAGE:user_id,
+        PER.INSTITUTION_ROLE_SOURCE_DESC,
+        MIN(FIRST_ACCESSED_TIME),
+        MAX(LAST_ACCESSED_TIME)
+FROM    cdm_lms.ACTIVITY ACT
+LEFT    JOIN CDM_LMS.PERSON PER ON
+        PERSON_ID = PER.ID
+WHERE   PER.INSTITUTION_ROLE_SOURCE_DESC = 'preuniversitarios_bb'           
+GROUP BY PERSON_ID,
+         PER.SOURCE_ID,
+        PER.FIRST_NAME,
+        PER.LAST_NAME,
+        PER.EMAIL,
+        PER.STAGE:batch_uid,
+        PER.STAGE:user_id,
+        PER.INSTITUTION_ROLE_SOURCE_DESC
+ORDER BY 10 ASC        
+
+
+
+
+SELECT  DISTINCT PERSON_ID,
+        PER.SOURCE_ID,
+        PER.FIRST_NAME,
+        PER.LAST_NAME,
+        PER.EMAIL,
+        PER.STAGE:batch_uid,
+        PER.STAGE:user_id,
+        PER.INSTITUTION_ROLE_SOURCE_DESC,
+        MIN(FIRST_ACCESSED_TIME),
+        MAX(LAST_ACCESSED_TIME)
+FROM    CDM_LMS.PERSON PER
+LEFT    JOIN cdm_lms.ACTIVITY ACT  ON
+        PER.ID = PERSON_ID
+WHERE   PER.INSTITUTION_ROLE_SOURCE_DESC in ('preuniversitarios_bb','preuniversitarios')
+GROUP BY PERSON_ID,
+        PER.SOURCE_ID,
+        PER.FIRST_NAME,
+        PER.LAST_NAME,
+        PER.EMAIL,
+        PER.STAGE:batch_uid,
+        PER.STAGE:user_id,
+        PER.INSTITUTION_ROLE_SOURCE_DESC
+ORDER BY 10 ASC      
+
+
+
+
+
+
+SELECT * FROM CDM_LMS.PERSON PER
+
+SELECT  *
+FROM cdm_lms.ACTIVITY
+WHERE PERSON_ID = '1829216' 
+
+
+
+SELECT  DISTINCT PERSON_ID,
+        PER.SOURCE_ID,
+        PER.FIRST_NAME,
+        PER.LAST_NAME,
+        PER.EMAIL,
+        PER.STAGE:batch_uid,
+        PER.STAGE:user_id,
+        PER.INSTITUTION_ROLE_SOURCE_DESC,
+        MIN(FIRST_ACCESSED_TIME),
+        MAX(LAST_ACCESSED_TIME)
+FROM    cdm_lms.ACTIVITY ACT
+LEFT    JOIN CDM_LMS.PERSON PER ON
+        PERSON_ID = PER.ID
+WHERE   PER.INSTITUTION_ROLE_SOURCE_DESC = 'preuniversitarios_bb'           
+GROUP BY PERSON_ID,
+         PER.SOURCE_ID,
+        PER.FIRST_NAME,
+        PER.LAST_NAME,
+        PER.EMAIL,
+        PER.STAGE:batch_uid,
+        PER.STAGE:user_id,
+        PER.INSTITUTION_ROLE_SOURCE_DESC
+ORDER BY 10 ASC 
