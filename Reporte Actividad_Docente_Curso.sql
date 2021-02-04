@@ -791,7 +791,6 @@ group by
     p.Source_ID as Instructor_PK1,
     concat(p.last_name, ', ', p.first_name) as NOMBRE_DOCENTE,
     p.email as DOCENTE_CORREO,   
-    p.STAGE:user_id as ID_BUAP,
     count(ca.id) as NUM_ACCESOS_DOCENTE_AL_CURSO,
     date_trunc('minute', max(ca.LAST_ACCESSED_TIME)) as ULTIMO_ACCESO_DOCENTE_AL_CURSO,
     round(sum(ca.duration_sum/3600),2) as HORAS_ACTIVIDAD_DOCENTE_EN_CURSO
