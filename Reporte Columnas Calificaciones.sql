@@ -29,8 +29,12 @@ inner join cdm_lms.person lp
     on lp.id = lpc.person_id
 inner join cdm_lms.course_item lci
     on lci.id = lgb.course_item_id
-where lgb.deleted_ind = 0
-and   lc.course_number in ('202125_20638',
+where 
+lgb.name like '%Calif%'
+--lgb.deleted_ind = 0
+/*and   lc.course_number in ('202125_20638',
 '202125_20657',
-'202125_20671')
+'202125_20671')*/
+and   lc.course_number like '202036_%'
+--lg.gradebook_id = '4082452'
 ORDER BY 3,4
